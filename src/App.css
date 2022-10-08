@@ -1,0 +1,46 @@
+.app_container {
+  padding: 20px 40px;
+}
+.search_container {
+  display: grid;
+  grid-template-columns: minmax(300px, 350px) 1fr;
+  gap: 20px;
+}
+.hitsperpage_wrapper {
+  margin: 10px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.ais-Hits-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+.ais-Hits-item {
+  padding: 5px 10px;
+}
+.hit_wrapper {
+  position: relative;
+}
+.hits_price {
+  font-weight: 800;
+}
+.hits_name {
+  font-weight: 600;
+}
+.hit_color {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50rem;
+  /* border: 1px solid rgb(209, 250, 250); */
+  height: 24px;
+  width: 24px;
+}
+.pagination_wrapper {
+  margin: 20px 10px;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+}

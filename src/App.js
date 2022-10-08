@@ -4,8 +4,7 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <p>Welcome to Algolia tutorial</p>
+    <div className="app_container">
       <SearchWrapper />
     </div>
   );

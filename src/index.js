@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "instantsearch.css/themes/satellite.css";
 import "./index.css";
 import App from "./App";
 

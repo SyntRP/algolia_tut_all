@@ -12,6 +12,7 @@ import {
   SortBy,
   ToggleRefinement,
 } from "react-instantsearch-hooks-web";
+import { SyntAutoCompleteWithInstantSearch } from "../synt/components/custom/SyntAutoCompleteWithInstantSearch";
 
 const searchClient = algoliasearch(
   "M56FGKTRSU",
@@ -81,7 +82,13 @@ export const SearchWrapper = () => {
           </Panel>
         </div>
         <div className="container_right">
-          <SearchBox />
+          <SyntAutoCompleteWithInstantSearch
+            searchClient={searchClient}
+            placeholder="Search products"
+            initialString={""}
+            detachedMediaQuery="none"
+            openOnFocus
+          />
           <div className="hitsperpage_wrapper">
             <HitsPerPage
               items={[

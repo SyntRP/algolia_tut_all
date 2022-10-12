@@ -44,3 +44,39 @@
   justify-content: center;
   display: grid;
 }
+
+/*
+Synt component styles
+*/
+.full_app_container {
+  position: relative;
+  padding: 20px 40px;
+}
+.state_container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+}
+.sb_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+.state--button {
+  border-radius: 0.25rem;
+  padding: 6px 10px;
+  border: 1px solid beige;
+}
+.state--button_active {
+  background-color: #3e34d3;
+  color: white;
+}
+.state_details_container {
+  z-index: 99999;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 0.75rem 1.5rem #12263f08;
+  border-radius: 0.5rem;
+}

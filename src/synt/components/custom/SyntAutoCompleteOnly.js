@@ -1,4 +1,4 @@
-import { autocomplete } from "@algolia/autocomplete-js";
+import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js";
 import React, {
   createElement,
   Fragment,
@@ -7,33 +7,10 @@ import React, {
   useMemo,
 } from "react";
 import { render } from "react-dom";
-
-import { createLocalStorageRecentSearchesPlugin } from "@algolia/autocomplete-plugin-recent-searches";
-
-const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
-  key: "RECENT_SEARCH",
-  limit: 3,
-  // transformSource({ source, onRemove }) {
-  //   return {
-  //     ...source,
-  //     templates: {
-  //       ...source.templates,
-  //       item(params) {
-  //         const { item } = params;
-
-  //         return (
-  //           <a
-  //             className="aa-ItemLink"
-  //             href={`/algolia-search?key=${item.label}`}
-  //           >
-  //             {source.templates.item(params).props.children}
-  //           </a>
-  //         );
-  //       },
-  //     },
-  //   };
-  // },
-});
+import { popularCategoriesPlugin } from "../plugin/PopularCategories";
+import { productListPlugin } from "../plugin/ProductsList";
+import { querySuggestionsPlugin } from "../plugin/QuerySuggestion";
+import { recentSearchesPlugin } from "../plugin/RecentSearch";
 
 export function SyntAutocompleteonly(props) {
   const containerRef = useRef(null);
@@ -45,9 +22,55 @@ export function SyntAutocompleteonly(props) {
 
     const search = autocomplete({
       container: containerRef.current,
-      plugins: [recentSearchesPlugin],
+      plugins: [
+        recentSearchesPlugin,
+        querySuggestionsPlugin,
+        productListPlugin,
+        popularCategoriesPlugin,
+      ],
       onSubmit({ state }) {
         console.log("Submitted : ", state);
+      },
+      render({ elements, render, html, state, Fragment }, root) {
+        const {
+          recentSearchesPlugin,
+          querySuggestionsPlugin,
+          productHitPlugin,
+          popularCategoriesPlugin,
+        } = elements;
+
+        render(
+          <div className="aa-PanelLayout aa-Panel--scrollable">
+            <div className="aa-PanelSections">
+              <div className="aa-PanelSection--left">
+                {recentSearchesPlugin && (
+                  <Fragment>
+                    <div className="aa-SourceHeader">
+                      <span className="aa-SourceHeaderTitle">
+                        Recent searches
+                      </span>
+                      <div className="aa-SourceHeaderLine" />
+                    </div>
+                    {recentSearchesPlugin}
+                  </Fragment>
+                )}
+                {querySuggestionsPlugin}
+              </div>
+              <div className="aa-PanelSection--right">
+                {state.query ? (
+                  <div className="aa-PanelSection--products">
+                    {productHitPlugin}
+                  </div>
+                ) : (
+                  <div className="aa-PanelSection--popularCategories aa-PanelSection--zoomable">
+                    {popularCategoriesPlugin}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>,
+          root
+        );
       },
       renderer: { createElement, Fragment, render },
       ...props,

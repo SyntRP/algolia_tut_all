@@ -1,5 +1,6 @@
 body {
   max-width: 1500px;
+  min-height: 100vh;
   padding: 0;
   box-sizing: border-box;
   margin: 0 auto;
@@ -8,8 +9,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(240, 246, 252);
-  box-shadow: rgb(119 122 175 / 30%) 0 1px 4px 0 inset;
+  background-color: #f7bfb2;
+  background-image: radial-gradient(at 47% 33%, #bebdbd 0, transparent 59%),
+    radial-gradient(at 82% 65%, #dafaf1 0, transparent 55%);
+  /* background-color: rgb(240, 246, 252);
+  box-shadow: rgb(119 122 175 / 30%) 0 1px 4px 0 inset; */
 }
 
 code {

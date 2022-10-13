@@ -14,8 +14,6 @@ import { createQuerySuggestionsPlugin } from "@algolia/autocomplete-plugin-query
 import { usePagination, useSearchBox } from "react-instantsearch-hooks";
 import { autocomplete, AutocompleteOptions } from "@algolia/autocomplete-js";
 
-import "@algolia/autocomplete-theme-classic";
-
 export function SyntAutoCompleteWithInstantSearch({
   searchClient,
   initialString,

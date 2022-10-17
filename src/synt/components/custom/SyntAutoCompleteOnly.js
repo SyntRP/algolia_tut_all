@@ -7,10 +7,12 @@ import React, {
   useMemo,
 } from "react";
 import { render } from "react-dom";
+import { brandsPlugin } from "../plugin/BrandPlugin";
 import { popularCategoriesPlugin } from "../plugin/PopularCategories";
 import { productListPlugin } from "../plugin/ProductsList";
 import { querySuggestionsPlugin } from "../plugin/QuerySuggestion";
 import { recentSearchesPlugin } from "../plugin/RecentSearch";
+import { specialProductPlugin } from "../plugin/SpecialProductPlugin";
 
 export function SyntAutocompleteonly(props) {
   const containerRef = useRef(null);
@@ -27,6 +29,8 @@ export function SyntAutocompleteonly(props) {
         querySuggestionsPlugin,
         productListPlugin,
         popularCategoriesPlugin,
+        brandsPlugin,
+        specialProductPlugin,
       ],
       onSubmit({ state }) {
         console.log("Submitted : ", state);
@@ -37,8 +41,28 @@ export function SyntAutocompleteonly(props) {
           querySuggestionsPlugin,
           productHitPlugin,
           popularCategoriesPlugin,
+          brandsPlugin,
+          specialProductsPlugin,
         } = elements;
-
+        const sourceIdsToExclude = [
+          "popularCategoriesPlugin",
+          "specialProductsPlugin",
+        ];
+        const noResultsLeftSide =
+          state.collections
+            .filter(
+              ({ source }) =>
+                [...sourceIdsToExclude, "productHitPlugin"].indexOf(
+                  source.sourceId
+                ) === -1
+            )
+            .reduce((prev, curr) => prev + curr.items.length, 0) > 0;
+        const hasResults =
+          state.collections
+            .filter(
+              ({ source }) => sourceIdsToExclude.indexOf(source.sourceId) === -1
+            )
+            .reduce((prev, curr) => prev + curr.items.length, 0) > 0;
         render(
           <div className="aa-PanelLayout aa-Panel--scrollable">
             <div className="aa-PanelSections">
@@ -55,9 +79,29 @@ export function SyntAutocompleteonly(props) {
                   </Fragment>
                 )}
                 {querySuggestionsPlugin}
+                {brandsPlugin && (
+                  <Fragment>
+                    <div className="aa-SourceHeader">
+                      <span className="aa-SourceHeaderTitle">Top Brands</span>
+                      <div className="aa-SourceHeaderLine" />
+                    </div>
+                    {brandsPlugin}
+                  </Fragment>
+                )}
+                {!noResultsLeftSide && hasResults && specialProductsPlugin}
+                {!hasResults && (
+                  <ul>
+                    <li className="noresults_text">
+                      Sorry, no results found for
+                      <strong>"{state?.query}"</strong>
+                    </li>
+                    <li>Please check your keyword</li>
+                    <li>Try our Popular Categories</li>
+                  </ul>
+                )}
               </div>
               <div className="aa-PanelSection--right">
-                {state.query ? (
+                {state.query && hasResults ? (
                   <div className="aa-PanelSection--products">
                     {productHitPlugin}
                   </div>

@@ -3,12 +3,14 @@ import {
   useQueryRules,
   useDynamicWidgets,
 } from "react-instantsearch-hooks-web";
+import { SyntPriceSlider } from "./widgets/SyntPriceSlider";
 import SyntRefinementList from "./widgets/SyntRefinementList";
 import SyntToggleRefinement from "./widgets/SyntToggleRefinement";
 
 const DYNAMICFACET = {
   RefinementList: SyntRefinementList,
   ToggleRefinement: SyntToggleRefinement,
+  PriceSlider: SyntPriceSlider,
   default: SyntRefinementList,
 };
 

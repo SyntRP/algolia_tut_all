@@ -22,6 +22,7 @@ import { SyntHit } from "./SyntHit";
 import SyntNoResultsHandler from "./SyntNoResultsHandler";
 import SyntDynamicFacets from "./SyntDynamicFacets";
 import { searchClient } from "../../services/SearchClient";
+import guidanzlogo from "../../../synt/assets/Guidanz_Logo.png"
 
 const searchTypeArray = [
   "AutoComplete With InstantSearch",
@@ -37,6 +38,10 @@ export const SyntSearchWrapper = () => {
       <InstantSearch searchClient={searchClient} indexName="e_com_demo">
         <Configure ruleContexts={["base_facets"]} />
         <div className="topbanner_container">
+        <div className="sb_container">
+      
+          <img src={guidanzlogo} alt="" height="45" />
+        
           <div className="sb_wrapper">
             {searchTypeArray.map((s) => (
               <button
@@ -50,6 +55,8 @@ export const SyntSearchWrapper = () => {
               </button>
             ))}
           </div>
+      </div>
+
           {searchType === "AutoComplete With InstantSearch" && (
             <SyntAutoCompleteWithInstantSearch
               searchClient={searchClient}

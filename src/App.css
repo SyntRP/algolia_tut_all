@@ -122,16 +122,16 @@ Synt component styles
   position: relative;
   padding: 10px 40px;
 }
-.state_container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 50;
+.sb_container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 .sb_wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;
   gap: 20px;
   justify-content: center;
   align-items: center;

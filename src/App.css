@@ -33,10 +33,10 @@
   font-weight: 600;
 }
 .ais-ToggleRefinement-checkbox {
-  background: darkblue;
+  background: skyblue;
 }
 .ais-ToggleRefinement-checkbox:checked {
-  background: darkblue;
+  background: skyblue;
 }
 .ais-Panel {
   margin-bottom: 16px;
@@ -334,7 +334,7 @@ No results
 price SLider css
 */
 .ais-RangeSlider .slider-rail {
-  background-color: rgba(65, 66, 71, 0.08);
+  background-color: white;
   border-radius: 3px;
   cursor: pointer;
   height: 3px;
@@ -360,6 +360,7 @@ price SLider css
   top: -28px;
   transform: translateX(-50%);
   user-select: none;
+  color: white;
 }
 
 .ais-RangeSlider .slider-handle {
@@ -374,6 +375,7 @@ price SLider css
   transform: translate(-50%, -50%);
   width: 16px;
   z-index: 1;
+  color: #f5f5fa;
 }
 
 @media (max-width: 899px) {

@@ -1,5 +1,5 @@
 :root {
-  --primary: #d20606;
+  --primary: #f6f6f8;
   --primary--rgb--key: 210, 6, 6;
 }
 /* .app_container {
@@ -12,7 +12,9 @@
 }
 .container_left {
   padding: 15px 10px 15px 15px;
-  background-color: rgba(235, 93, 40, 0.25);
+  border: black;
+  background-image:   radial-gradient(at 47% 33%, #041f39 0, transparent 59%),
+  radial-gradient(at 82% 65%, #082342 0, transparent 55%) ;
 }
 /* .facet_container {
  
@@ -31,10 +33,10 @@
   font-weight: 600;
 }
 .ais-ToggleRefinement-checkbox {
-  background: #f8ecec;
+  background: darkblue;
 }
 .ais-ToggleRefinement-checkbox:checked {
-  background: var(--primary);
+  background: darkblue;
 }
 .ais-Panel {
   margin-bottom: 16px;
@@ -73,9 +75,9 @@
   padding: 0px;
   backdrop-filter: blur(22px) saturate(147%);
   -webkit-backdrop-filter: blur(22px) saturate(147%);
-  background-color: rgba(235, 93, 40, 0.45);
+  background-color: rgba(232, 233, 239, 0.997);
   border-radius: 0px 0px 10px 10px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
+  border: 1px solid rgba(209, 213, 219, 0.982);
   position: relative;
   flex-direction: column;
   display: grid;
@@ -146,7 +148,7 @@ Synt component styles
 }
 .state--button_active {
   font-weight: 500;
-  background-color: #342624;
+  background-color: #0a044c;
   color: white;
   transition: background-color 2s ease-out;
 }
@@ -210,11 +212,11 @@ Top banner
 .topbanner_container {
   backdrop-filter: blur(12px) saturate(94%);
   -webkit-backdrop-filter: blur(12px) saturate(94%);
-  background-color: rgba(235, 93, 40, 0.25);
+  background-color: rgba(4, 40, 75, 0.982);
   /* border-radius: 0px 0px 12px 12px; */
   padding: 30px 40px;
   margin-bottom: 30px;
-  box-shadow: rgb(119 122 175 / 30%) 0 8px 8px 0 inset;
+  box-shadow: rgba(2, 3, 65, 0.959) 0 8px 8px 0 inset;
 }
 
 /*
@@ -232,7 +234,7 @@ algolia facet scrollbar - RefinementList
   grid-template-columns: auto 1fr auto;
 }
 .ais-RefinementList-checkbox:checked {
-  background-color: var(--primary);
+  background-color: darkblue;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAoUlEQVRIie3Tqw0CQRQF0A0JBr8bEvrA0gECjcJBUFSAoAZaoAEqYQVNYDAYPgfBJIyDTWYQZK+/500m7xVFmzZNggrznHjtlUVqvMQh4Ef0/xTHoAEe/3mN6lNhiBPWyV8eSmNcQ2mVFI/KU9zxwCwpHiHLANwwSYpH2CZAF4yyrCK2ATwH9LttaTCgg5130h5RGNLFPgseDemhzIK3+UmeJtBAj7yn5iIAAAAASUVORK5CYII=);
 
   box-shadow: none;
@@ -276,7 +278,7 @@ algolia facet scrollbar - RefinementList
   border-bottom: 1px solid var(--primary);
 }
 .aa-SourceHeaderTitle {
-  color: var(--primary);
+  color: black;
 }
 .aa-PanelSections {
   display: flex;

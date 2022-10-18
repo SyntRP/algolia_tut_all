@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export const SyntPanel = ({ show, title, children }) => {
+  console.log(title)
   const [expand, setExpand] = useState(false);
   return (
     <>

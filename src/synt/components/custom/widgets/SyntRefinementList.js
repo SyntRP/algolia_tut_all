@@ -23,6 +23,7 @@ const SyntRefinementList = (props) => {
         attribute={attribute}
         showMore={true}
         searchable={isSearchable}
+        style={{color:"white"}}
       />
     </SyntPanel>
   );

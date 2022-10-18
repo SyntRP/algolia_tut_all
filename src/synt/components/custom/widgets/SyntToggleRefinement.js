@@ -21,7 +21,7 @@ const SyntToggleRefinement = (props) => {
   return (
     <>
       {show ? (
-        <ToggleRefinement attribute={attribute} label={label || attribute} />
+        <ToggleRefinement attribute={attribute} label={label || attribute} style={{textTransform:"uppercase"}}/>
       ) : null}
     </>
   );

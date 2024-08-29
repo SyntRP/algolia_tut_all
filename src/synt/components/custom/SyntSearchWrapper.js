@@ -23,6 +23,7 @@ import SyntNoResultsHandler from "./SyntNoResultsHandler";
 import SyntDynamicFacets from "./SyntDynamicFacets";
 import { searchClient } from "../../services/SearchClient";
 import guidanzlogo from "../../../synt/assets/Guidanz_Logo.png"
+import { SyntPriceSlider } from "./widgets/SyntPriceSlider";
 
 const searchTypeArray = [
   "AutoComplete With InstantSearch",
@@ -74,6 +75,12 @@ export const SyntSearchWrapper = () => {
           )}
           {searchType === "InstantSearch" && <SearchBox />}
         </div>
+        <>
+          <SyntPriceSlider
+            attribute="price.value"
+            facetData={{ label: "BIGPrice" }}
+          />
+        </>
         {searchType !== "AutoComplete" && (
           <div className="full_app_container">
             <div className="search_container">
